@@ -59,7 +59,7 @@ skip_list * sl_make_list()
         return NULL;
     }
     list->level = 0;
-    list->rand_bits = random();
+    list->rand_bits = rand();
     list->rand_bits_left = ((sizeof(long) * 8) - 1) / 2;
     list->item_count = 0;
     return list;
@@ -104,7 +104,7 @@ int sl_random_level(skip_list *list)
         list->rand_bits >>= 2;
         for (i = 0; i < 2; i++) {
             if (list->rand_bits_left == 0) {
-                list->rand_bits = random();
+                list->rand_bits = rand();
                 list->rand_bits_left = ((sizeof(long) * 8) - 1) / 2;
                 break;
             }
